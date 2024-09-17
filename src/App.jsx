@@ -3,6 +3,7 @@ import { ABT } from "bahtrext";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 import "./App.css";
+import { Number } from "coolshapes-react";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -29,7 +30,11 @@ function App() {
           onExit={() => setTriggerState(false)}
         >
           <h2>
-            {triggerState && <CountUp end={number} />}
+            {/* {triggerState && <CountUp end={number} />} */}
+            {triggerState &&
+              number.split("").map((n, i) => {
+                return <Number index={n} noise={false} size={80} />;
+              })}
           </h2>
         </ScrollTrigger>
       </div>
